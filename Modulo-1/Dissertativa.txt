@@ -1,0 +1,155 @@
+Programação Orientada a Objetos com JAVA - Dissertativa Módulo 1
+
+Exercícios
+
+1- Tire um tempo para refletir sobre tudo que vimos nesta aula que, apesar de teórica, é muito importante. 
+Hoje em dia é muito fácil obter trechos de código usando ferramentas na internet mas, é preciso 
+entender o porquê e se faz sentido. E como futura pessoa desenvolvedora, você é que vai fornecer essas 
+respostas aos porquês.
+
+2- Imagine que você está desenvolvendo um sistema de gerenciamento de uma biblioteca. Neste sistema, é necessário 
+modelar livros, autores, usuários, empréstimos e devoluções. Cada livro possui informações como título, autor e 
+gênero. Os autores têm nome, nacionalidade e obras publicadas. Os usuários da biblioteca têm nome, idade e 
+histórico de empréstimos. Os empréstimos registram a data de retirada e devolução, além do livro e usuário envolvidos.
+Com base no cenário descrito, analise qual paradigma de programação seria mais indicado para implementar o sistema de 
+gerenciamento da biblioteca:
+a) programação estruturada
+b) programação imperativa
+c) programação orientada a objetos ou
+d) programação funcional
+Justifique sua escolha considerando a estrutura e as interações entre os objetos do sistema.
+Para facilitar, considere pontos como: 
+    - Estrutura e interação das entidades do sistema (Livros, autores, usuários e demais)
+    - Reuso
+    - Qual paradigma facilitaria a evolução do sistema, no futuro
+    - Eficiência, dado o cenário apresentado
+Dica: A combinação dos paradigmas de programação pode ser viável em certos contextos, mas geralmente não é recomendada 
+devido a diferenças fundamentais entre os paradigmas.
+
+2- Resposta
+
+Como o problema de estoque e gerenciamento é relacionado a modelagem e iteração de objetos, a Orientação a Objetos é o melhor 
+paradigma a ser pois cada entidade pode ser representada como uma classe com atributos e métodos que encapsulam seu comportamento. 
+Por exemplo:
+
+- Estrutura e interação das entidades:
+    - Livro: Atributos (titulo, autor, genero, isbn, estado); Métodos (emprestar(), devolver(), verificarDisponibilidade()).
+    - Autor: Atributos (nome, nacionalidade, obras como uma lista de Livro); Métodos (adicionarObra(), listarObras()).
+    - Usuario: Atributos (nome, idade, historicoEmprestimos); Métodos (realizarEmprestimo(), consultarHistorico()).
+    - Emprestimo: Atributos (livro, usuario, dataRetirada, dataDevolucao); Métodos (calcularMulta(), finalizar()).
+    O problema possui entidades claras (Livro, Autor, Usuário, Empréstimo, Devolução) com atributos e 
+    comportamentos bem definidos. Na OO, essas entidades podem ser representadas como classes, com 
+    atributos e métodos.
+    As relações entre entidades são facilmente modeladas usando associações e composições, como listas 
+    de obras em Autor ou histórico de empréstimos em Usuário.
+
+- Reuso:
+    A Orientação a Objetos permite herança e polimorfismo, facilitando a reutilização de código. 
+    Por exemplo, uma classe base ItemBiblioteca pode ser criada para livros e outros materiais 
+    (como revistas), com subclasses específicas herdando atributos comuns. O uso de interfaces ou 
+    classes abstratas (ex.: Emprestavel) garante que diferentes tipos de itens sigam um padrão comum para
+    empréstimos, promovendo reuso.
+
+- Evolução do sistema:
+
+    O paradigma Orientação a Objetos suporta a adição de novas funcionalidades com facilidade. 
+    Por exemplo, para incluir reservas ou multas, novas classes (ex.: Reserva, Multa) podem ser criadas 
+    sem alterar as existentes, seguindo o princípio aberto/fechado.
+    A modularidade da OO facilita a manutenção, pois mudanças em uma classe (ex.: adicionar um novo 
+    atributo a Livro) não afetam diretamente outras partes do sistema.
+
+
+- Eficiência:
+    Embora a OO possa introduzir uma pequena sobrecarga em comparação com paradigmas como a programação estruturada, 
+    a complexidade do sistema de biblioteca (gerenciamento de múltiplas entidades e interações) é melhor tratada com 
+    a organização e encapsulamento da OO. A eficiência é mantida com boas práticas, como evitar heranças profundas 
+    desnecessárias.
+
+- Por que não outros paradigmas?
+    - Programação estruturada: Organiza o sistema em funções e dados separados, o que dificulta modelar as interações 
+    complexas entre entidades (ex.: um empréstimo vinculando usuário e livro). A manutenção e evolução tornam-se mais 
+    difíceis à medida que o sistema cresce.
+    - Programação imperativa: Foca em sequências de comandos, mas não oferece uma estrutura clara para representar 
+    entidades e suas relações, resultando em código menos modular.
+    - Programação funcional: Embora poderosa para transformações de dados e imutabilidade, não é ideal para modelar entidades 
+    com estado mutável (ex.: um livro que muda de "disponível" para "emprestado") e interações dinâmicas.
+
+- Conclusão: A orientação a objetos é a melhor escolha, pois alinha-se naturalmente com a estrutura do sistema, promove 
+reuso, facilita a evolução e mantém eficiência adequada para o cenário.
+
+3- Você deve ter percebido que nossas aulas tem vários diagramas. Eles ajudam na correta compreensão dos conceitos e, quando projetamos sistemas reais, esses recursos nos ajudam a entender alguns detalhes de implementação e viabilidade do que estamos fazendo. Neste exercício, você vai criar seu primeiro diagrama!
+
+Antes de começar a desenhar, tenha em mãos as seguintes respostas: 
+
+Quais serão os elementos (classes) do diagrama?
+
+ Com os conhecimentos que você já tem em programação, consegue pensar no tipo de cada propriedade? Por exemplo, no caso do livro, qual seria o tipo da propriedade “Título”? Seria uma string, um número, ou outro tipo?
+
+Qual seria o relacionamento entre os elementos? Pense em relacionamentos 1 para 1 e 1 para muitos
+
+Regras:
+
+- Seu diagrama deve estar de acordo com o que você definiu no exercício anterior, em Elementos de diagrama e Relações entre elementos
+
+3 - Resposta
+
+Quais serão os elementos (classes) do diagrama?
+
+As classes principais do sistema são:
+- Livro: Representa um livro na biblioteca, com propriedades como título, gênero e autor.
+- Autor: Representa um autor, com propriedades como nome, nacionalidade e lista de obras.
+- Usuario: Representa um usuário da biblioteca, com propriedades como nome, idade e histórico de empréstimos.
+- Emprestimo: Representa um empréstimo, com propriedades como data de retirada, data de devolução, livro e usuário envolvidos.
+
+Tipos das propriedades:
+Para cada classe, as propriedades e seus tipos são:
+Livro:
+
+titulo: String (nome do livro, ex.: "Dom Quixote").
+genero: String (gênero literário, ex.: "Romance").
+isbn: String (identificador único, ex.: "978-3-16-148410-0").
+autor: Autor (referência ao objeto Autor).
+
+
+Autor:
+
+nome: String (nome do autor, ex.: "Miguel de Cervantes").
+nacionalidade: String (nacionalidade, ex.: "Espanhol").
+obras: List<Livro> (lista de livros escritos pelo autor).
+
+
+Usuario:
+
+nome: String (nome do usuário, ex.: "João Silva").
+idade: Integer (idade do usuário, ex.: 25).
+historicoEmprestimos: List<Emprestimo> (lista de empréstimos realizados).
+
+
+Emprestimo:
+
+id: Integer (identificador único do empréstimo).
+dataRetirada: Date (data de retirada do livro).
+dataDevolucao: Date (data de devolução, pode ser nula se não devolvido).
+livro: Livro (referência ao livro emprestado).
+usuario: Usuario (referência ao usuário que fez o empréstimo).
+
+
+
+Relacionamentos entre os elementos:
+
+Livro e Autor:
+
+1 para muitos (1:N): Um Autor pode ter várias obras (Livros), mas cada Livro está associado a apenas um Autor. Representado por 
+uma associação unidirecional de Livro para Autor e uma lista de Livros em Autor.
+
+
+Usuario e Emprestimo:
+
+1 para muitos (1:N): Um Usuario pode ter vários Emprestimos (histórico), mas cada Emprestimo está associado a apenas um Usuario. 
+Representado por uma associação unidirecional de Emprestimo para Usuario e uma lista de Emprestimos em Usuario.
+
+
+Livro e Emprestimo:
+
+1 para muitos (1:N): Um Livro pode estar em vários Emprestimos (em momentos diferentes), mas cada Emprestimo envolve apenas um Livro. 
+Representado por uma associação unidirecional de Emprestimo para Livro.
